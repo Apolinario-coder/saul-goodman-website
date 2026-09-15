@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (dualityGlow) {
                     const glowX = currentSplitPercent + smoothMouse.x * 10;
                     const glowY = 50 - smoothMouse.y * 15;
-                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.18) 0%, transparent 60%)`;
+                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.22) 0%, rgba(10, 10, 10, 0.3) 45%, transparent 70%)`;
                 }
             }
             requestAnimationFrame(updateDuality3D);
