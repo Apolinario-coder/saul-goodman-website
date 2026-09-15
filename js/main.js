@@ -234,12 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentSplitPercent = 50;
         let targetSplitPercent = 50;
 
-        // Track cursor X within section to smoothly adjust the duality split point
+        // Track cursor X across the full width (0% to 100%)
         dualitySection.addEventListener('mousemove', (e) => {
             const rect = dualitySection.getBoundingClientRect();
             const relativeX = (e.clientX - rect.left) / rect.width;
-            // Constrain between 25% and 75% for artistic aesthetic
-            targetSplitPercent = Math.max(20, Math.min(80, relativeX * 100));
+            // Allow full horizontal sweep from 0% to 100%
+            targetSplitPercent = Math.max(0, Math.min(100, relativeX * 100));
         });
 
         dualitySection.addEventListener('mouseleave', () => {
@@ -258,12 +258,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 dualityBgContainer.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
 
-                // Smoothly lerp the split line position
+                // Smoothly lerp the split line position across full 0-100%
                 currentSplitPercent = lerp(currentSplitPercent, targetSplitPercent, 0.08);
 
+                // Since dualityBgContainer is 112% wide (inset: -6%), we map the section's 0-100%
+                // to the container's internal coordinates so the split reaches exact physical edges
+                // Container offset = 6%, container total = 112%
+                const containerSplitPercent = ((currentSplitPercent / 100) * 100 + 6) / 1.12;
+
                 if (dualityBgColor && dualityBgBw) {
-                    dualityBgColor.style.clipPath = `polygon(0 0, ${currentSplitPercent}% 0, ${currentSplitPercent}% 100%, 0 100%)`;
-                    dualityBgBw.style.clipPath = `polygon(${currentSplitPercent}% 0, 100% 0, 100% 100%, ${currentSplitPercent}% 100%)`;
+                    dualityBgColor.style.clipPath = `polygon(0 0, ${containerSplitPercent}% 0, ${containerSplitPercent}% 100%, 0 100%)`;
+                    dualityBgBw.style.clipPath = `polygon(${containerSplitPercent}% 0, 100% 0, 100% 100%, ${containerSplitPercent}% 100%)`;
                 }
 
                 if (dualityDividerLine) {
