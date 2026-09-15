@@ -380,26 +380,70 @@ body {
     background: #0d1117;
 }
 
-.duality-bg-layer {
+.duality-bg-container {
     position: absolute;
     inset: -6%;
     width: 112%;
     height: 112%;
-    background-image: 
-        linear-gradient(to bottom, rgba(10, 10, 10, 0.35) 0%, rgba(26, 26, 26, 0.2) 40%, rgba(10, 10, 10, 0.5) 100%),
-        url('../assets/duality-bg.jpeg');
-    background-size: cover;
-    background-position: center 28%; /* Keeps Saul and characters' faces in full view */
-    background-repeat: no-repeat;
-    filter: saturate(0.85) brightness(0.92) contrast(1.08);
     transform-style: preserve-3d;
     will-change: transform;
     pointer-events: none;
     z-index: 0;
-    transition: filter 0.5s ease;
 }
 
-/* Dynamic volumetric 3D light glow */
+.duality-bg-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(26, 26, 26, 0.15) 40%, rgba(10, 10, 10, 0.45) 100%),
+        url('../assets/duality-bg.jpeg');
+    background-size: cover;
+    background-position: center 28%;
+    background-repeat: no-repeat;
+    transform-style: preserve-3d;
+    will-change: clip-path, filter, opacity;
+}
+
+/* Left side (James McGill): Rich, vibrant, warm color palette */
+.duality-bg-color {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    filter: saturate(1.25) contrast(1.1) brightness(0.98);
+    transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Right side (Saul Goodman): Gritty, film-noir high-contrast black and white */
+.duality-bg-bw {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    filter: grayscale(100%) contrast(1.35) brightness(0.85);
+    transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dynamic Glowing Divider Line that responds to cursor */
+.duality-divider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(201, 169, 97, 0.8) 20%, 
+        #c9a961 50%, 
+        rgba(201, 169, 97, 0.8) 80%, 
+        transparent 100%
+    );
+    box-shadow: 0 0 15px rgba(201, 169, 97, 0.6), 0 0 30px rgba(201, 169, 97, 0.3);
+    z-index: 1;
+    pointer-events: none;
+    transform: translateX(-50%);
+    will-change: left, opacity, transform;
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+}
+
+/* Volumetric ambient light glow */
 .duality-light-glow {
     position: absolute;
     inset: 0;

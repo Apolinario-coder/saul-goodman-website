@@ -203,13 +203,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // DUALITY (SPLIT-SCREEN) 3D DEPTH & PARALLAX
     // ============================================
-    const dualityBg = document.getElementById('dualityBg');
+    const dualityBgContainer = document.getElementById('dualityBgContainer');
+    const dualityBgColor = document.getElementById('dualityBgColor');
+    const dualityBgBw = document.getElementById('dualityBgBw');
+    const dualityDividerLine = document.getElementById('dualityDividerLine');
     const dualityGlow = document.getElementById('dualityGlow');
     const dualitySection = document.getElementById('dualitySection');
 
     // 1. Scroll-driven 3D Zoom & Multi-plane Parallax
-    if (dualityBg) {
-        gsap.fromTo(dualityBg,
+    if (dualityBgContainer) {
+        gsap.fromTo(dualityBgContainer,
             { scale: 1.12, yPercent: -4 },
             {
                 scale: 1.03,
@@ -225,25 +228,52 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     }
 
-    // 2. Continuous 3D Tilt on Mouse Move for Background Depth
-    if (!isMobile && dualityBg && dualitySection) {
+    // 2. Interactive Duality: Color on James McGill (Left) & Black-and-White on Saul Goodman (Right)
+    // plus continuous 3D tilt & dynamic division line on hover/mouse move
+    if (!isMobile && dualityBgContainer && dualitySection) {
+        let currentSplitPercent = 50;
+        let targetSplitPercent = 50;
+
+        // Track cursor X within section to smoothly adjust the duality split point
+        dualitySection.addEventListener('mousemove', (e) => {
+            const rect = dualitySection.getBoundingClientRect();
+            const relativeX = (e.clientX - rect.left) / rect.width;
+            // Constrain between 25% and 75% for artistic aesthetic
+            targetSplitPercent = Math.max(20, Math.min(80, relativeX * 100));
+        });
+
+        dualitySection.addEventListener('mouseleave', () => {
+            targetSplitPercent = 50;
+        });
+
         function updateDuality3D() {
-            // Calculate if section is in or near viewport
             const rect = dualitySection.getBoundingClientRect();
             if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
-                // Smooth subtle 3D rotation + depth translation that preserves face visibility
+                // 3D rotation & translation
                 const rotX = smoothMouse.y * -3.5;
                 const rotY = smoothMouse.x * 4.5;
                 const transX = smoothMouse.x * 20;
                 const transY = smoothMouse.y * 12;
-                const transZ = 15; // Subtle 3D pop
+                const transZ = 15;
 
-                dualityBg.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
+                dualityBgContainer.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
+
+                // Smoothly lerp the split line position
+                currentSplitPercent = lerp(currentSplitPercent, targetSplitPercent, 0.08);
+
+                if (dualityBgColor && dualityBgBw) {
+                    dualityBgColor.style.clipPath = `polygon(0 0, ${currentSplitPercent}% 0, ${currentSplitPercent}% 100%, 0 100%)`;
+                    dualityBgBw.style.clipPath = `polygon(${currentSplitPercent}% 0, 100% 0, 100% 100%, ${currentSplitPercent}% 100%)`;
+                }
+
+                if (dualityDividerLine) {
+                    dualityDividerLine.style.left = `${currentSplitPercent}%`;
+                }
 
                 if (dualityGlow) {
-                    const glowX = 50 + smoothMouse.x * 15;
+                    const glowX = currentSplitPercent + smoothMouse.x * 10;
                     const glowY = 50 - smoothMouse.y * 15;
-                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.16) 0%, transparent 60%)`;
+                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.18) 0%, transparent 60%)`;
                 }
             }
             requestAnimationFrame(updateDuality3D);
