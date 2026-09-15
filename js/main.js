@@ -201,8 +201,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // TRANSITION SECTION (Split screen parallax)
+    // DUALITY (SPLIT-SCREEN) 3D DEPTH & PARALLAX
     // ============================================
+    const dualityBg = document.getElementById('dualityBg');
+    const dualityGlow = document.getElementById('dualityGlow');
+    const dualitySection = document.getElementById('dualitySection');
+
+    // 1. Scroll-driven 3D Zoom & Multi-plane Parallax
+    if (dualityBg) {
+        gsap.fromTo(dualityBg,
+            { scale: 1.25, yPercent: -8 },
+            {
+                scale: 1.05,
+                yPercent: 8,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.transition',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            }
+        );
+    }
+
+    // 2. Continuous 3D Tilt on Mouse Move for Background Depth
+    if (!isMobile && dualityBg && dualitySection) {
+        function updateDuality3D() {
+            // Calculate if section is in or near viewport
+            const rect = dualitySection.getBoundingClientRect();
+            if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
+                // Invert slightly and apply 3D rotation + depth translation
+                const rotX = smoothMouse.y * -5;
+                const rotY = smoothMouse.x * 6;
+                const transX = smoothMouse.x * 35;
+                const transY = smoothMouse.y * 25;
+                const transZ = 20; // Pop out into 3D space
+
+                dualityBg.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.12)`;
+
+                if (dualityGlow) {
+                    const glowX = 50 + smoothMouse.x * 20;
+                    const glowY = 50 - smoothMouse.y * 20;
+                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.18) 0%, transparent 60%)`;
+                }
+            }
+            requestAnimationFrame(updateDuality3D);
+        }
+        requestAnimationFrame(updateDuality3D);
+    }
+
+    // 3. Entrance & Differential Content Parallax
     gsap.fromTo('.split-left > div', 
         { x: -100, opacity: 0 },
         { x: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
@@ -218,12 +267,12 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     gsap.to('.split-left > div', {
-        y: -50,
+        y: -60,
         scrollTrigger: { trigger: '.transition', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
     });
 
     gsap.to('.split-right > div', {
-        y: 50,
+        y: 60,
         scrollTrigger: { trigger: '.transition', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
     });
 
