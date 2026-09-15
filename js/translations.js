@@ -1,7 +1,9 @@
 /**
- * i18n Translations Dictionary
+ * SAUL GOODMAN - CRIMINAL DEFENSE ATTORNEY
+ * i18n Translations Dictionary (Manual, Authentic & Localized)
  * Languages: English (en) and Portuguese - Brazil (pt-BR)
  */
+
 const translations = {
     "en": {
         // Navigation
@@ -108,91 +110,91 @@ const translations = {
         // Navigation
         "nav_services": "Serviços",
         "nav_testimonials": "Depoimentos",
-        "nav_about": "Sobre",
+        "nav_about": "Sobre Mim",
         "nav_journey": "Trajetória",
         "nav_contact": "Contato",
 
         // Hero
         "hero_subtitle": "ADVOGADO DE DEFESA CRIMINAL",
-        "scroll_explore": "Rolar",
+        "scroll_explore": "Role para explorar",
 
-        // Duality
+        // Duality (Split-Screen)
         "mcgill_title": "JAMES McGILL",
         "mcgill_desc": "O advogado dedicado que começou nos tribunais de Albuquerque, defendendo os esquecidos e marginalizados com paixão e princípios.",
         "saul_title": "SAUL GOODMAN",
-        "saul_desc": "O advogado criminalista que conhece cada brecha do sistema legal, lutando pelos seus clientes com estratégia implacável.",
+        "saul_desc": "O advogado que conhece cada canto escuro do sistema legal, lutando pelos seus clientes com estratégia implacável e determinação.",
 
-        // Services
+        // Services (Rimas originais adaptadas mantendo o espírito do comercial do Saul)
         "services_title": "Serviços",
         "services_subtitle": "Soluções Jurídicas Completas",
         "service_1_title": "Defesa de Embriaguez ao Volante",
-        "service_1_desc": "Foi pego? Não fique com medo! Deixe o Saul resolver! Representação agressiva em todos os níveis de processos de trânsito. Da abordagem policial ao tribunal, conheço cada manobra, cada precedente e cada brecha do sistema.",
+        "service_1_desc": "Caiu no bafômetro? Não se desespere! Deixe o Saul resolver! Representação incisiva em todos os níveis de processos de trânsito. Da blitz ao tribunal, conheço cada manobra, cada precedente e cada brecha do sistema.",
         "service_2_title": "Defesa Criminal",
-        "service_2_desc": "De infrações leves a crimes de alto escalão, sou o seu gênio jurídico! De furto e agressão a acusações complexas, já vi e venci de tudo. Sua liberdade é minha missão.",
-        "service_3_title": "Danos Pessoais",
-        "service_3_desc": "Machucou-se? Fique atento! Chame quem garante o que você merece! Escorregão? Acidente de carro? Lesão no trabalho? Não deixe as seguradoras te enrolarem. Eu luto pela indenização máxima.",
+        "service_2_desc": "De pequenas infrações a casos pesados, eu sou o seu gênio jurídico! Furto, agressão ou acusações complexas: já vi de tudo e já ganhei de tudo. A sua liberdade é a minha missão.",
+        "service_3_title": "Danos Pessoais e Acidentes",
+        "service_3_desc": "Se machucou? Não marque bobeira! Ligue para o especialista e receba o que merece! Escorregão? Batida de carro? Acidente de trabalho? Não deixe as seguradoras te passarem a perna. Eu brigo pela indenização máxima.",
         "service_4_title": "Direito dos Idosos",
-        "service_4_desc": "Protegendo a terceira idade de armadilhas legais! Planejamento patrimonial, negligência em asilos, questões previdenciárias. Seus entes queridos merecem dignidade e amparo da lei.",
+        "service_4_desc": "Protegendo a melhor idade de ciladas legais! Testamentos, abusos em casas de repouso e disputas previdenciárias. Seus entes queridos merecem respeito, dignidade e a proteção da lei.",
 
-        // Testimonials
+        // Testimonials (Citações exatas dos personagens mantendo tom e gírias)
         "testimonials_title": "Depoimentos",
         "testimonials_subtitle": "O que os Clientes Dizem",
-        "test_walter": "\"O Saul não cuidou apenas dos meus problemas legais. Ele entendeu as necessidades do meu negócio. Quando as coisas complicavam, ele sempre tinha uma saída. É o único advogado a quem confiaria minha... química.\"",
-        "test_jesse": "\"Cara, esse Saul é... sinistro! Quando eu estava na pior, ele me tirou de lá. Ele não é como esses outros engravatados, mano. Ele realmente se importa. De verdade.\"",
-        "test_nacho": "\"No meu ramo de trabalho, discrição é essencial. Saul entende isso. Ele transita pelas áreas cinzentas como ninguém. Salvou minha pele mais vezes do que consigo contar.\"",
-        "test_mike": "\"Já trabalhei com muitos advogados. Saul entrega resultados. Ele é nada convencional, mas eficaz. Se estiver com problemas sérios, ele é a sua melhor opção. Nada de meias medidas.\"",
-        "test_kim": "\"Vi o Saul trabalhar de perto. Seus métodos podem ser heterodoxos, mas sua dedicação aos clientes é absoluta. Ele luta com mais garra do que qualquer pessoa que conheço.\"",
+        "test_walter": "\"O Saul não se limitou a resolver meus problemas legais. Ele entendeu as necessidades do meu negócio. Quando a situação complicava, ele sempre tinha uma saída. É o único advogado a quem confiaria a minha... química.\"",
+        "test_jesse": "\"Mano, esse cara, o Saul... ele é fera mesmo. Quando eu tava ferrado e sem saída, ele me safou. Ele não é como os outros engravatados. Ele realmente se importa. De verdade.\"",
+        "test_nacho": "\"Na minha linha de trabalho, discrição é tudo. O Saul entende isso perfeitamente. Ele transita pelas áreas cinzentas como ninguém. Já salvou a minha pele mais vezes do que consigo contar.\"",
+        "test_mike": "\"Já trabalhei com muito advogado. O Saul entrega resultados. Ele foge do convencional, mas funciona. Se você estiver com a corda no pescoço, ele é a sua melhor opção. Nada de meias medidas.\"",
+        "test_kim": "\"Eu vi o Saul trabalhar de perto. Os métodos dele podem não ser ortodoxos, mas a lealdade e dedicação aos clientes é absoluta. Ele luta com mais garra do que qualquer um que conheço.\"",
 
         // About
         "about_title": "Sobre Mim",
         "about_quote": "\"Todo mundo merece um defensor. Todo mundo merece alguém que acredite em você quando ninguém mais acredita. Esse é o meu trabalho.\"",
         "about_quote_author": "— Saul Goodman",
-        "about_callout_main": "\"JIMMY ESCORREGADIO<br>COM DIPLOMA DE DIREITO<br><span class=\"callout-accent\">É COMO UM CHIMPANZÉ COM UMA METRALHADORA\"</span>",
+        "about_callout_main": "\"SLIPPIN' JIMMY<br>COM DIPLOMA DE DIREITO<br><span class=\"callout-accent\">É COMO UM CHIMPANZÉ COM UMA METRALHADORA\"</span>",
         "about_callout_attribution": "— O que diziam sobre mim",
         "about_callout_reply": "Eu provei que estavam errados.",
 
-        // Timeline
+        // Timeline (Narrativa biográfica detalhada e fiel)
         "timeline_title": "Trajetória",
-        "timeline_subtitle": "De Jimmy Escorregadio a Saul Goodman",
+        "timeline_subtitle": "De Slippin' Jimmy a Saul Goodman",
         "timeline_1_year": "Cicero, Illinois",
-        "timeline_1_text": "Comecei como \"Jimmy Escorregadio\" em Cicero, aplicando golpes de rua com meu parceiro Marco. As ruas me ensinaram mais sobre a natureza humana do que qualquer livro de direito jamais poderia. Cada golpe e armação foram lições de sobrevivência num mundo que não dava a mínima para pessoas como nós.",
+        "timeline_1_text": "Comecei como \"Slippin' Jimmy\" em Cicero, aplicando golpes de rua com meu parceiro Marco. O asfalto me ensinou mais sobre a natureza humana do que qualquer livro jurídico. Cada golpe era uma aula de sobrevivência num mundo que não dava a mínima para gente como nós.",
         "timeline_2_year": "A Sala de Correspondência",
-        "timeline_2_text": "Meu irmão Chuck me deu uma oportunidade na Hamlin, Hamlin & McGill — entregando cartas. Enquanto distribuía correspondências de dia, estudava direito à noite na University of American Samoa. \"Vai, Caranguejos Terrestres!\" Não era Harvard, mas conquistei cada crédito com suor e determinação.",
+        "timeline_2_text": "Meu irmão Chuck me deu uma chance na Hamlin, Hamlin & McGill — na sala de correspondência. Entregando cartas de dia e virando noites estudando direito na Universidade de Samoa Americana. \"Vai, Caranguejos Terrestres!\" Não era Harvard, mas conquistei cada crédito com pura garra.",
         "timeline_3_year": "Aprovado no Exame da Ordem",
-        "timeline_3_text": "Passei no exame da ordem na minha terceira tentativa. Meu irmão Chuck, um advogado brilhante a quem eu idolatrava, boicotou secretamente meu caminho na HHM a cada oportunidade. A pessoa que eu mais admirava nunca acreditou em mim. Isso mudou tudo.",
+        "timeline_3_text": "Passei no exame da Ordem na terceira tentativa. O Chuck, um gênio do direito que eu idolatrava, boicotou secretamente todos os meus passos na HHM. A pessoa que eu mais admirava nunca acreditou em mim. Aquilo mudou tudo.",
         "timeline_4_year": "Defensor Público",
-        "timeline_4_text": "Tornei-me defensor público em Albuquerque, representando clientes que ninguém mais queria. Encontrei propósito defendendo os esquecidos, os invisíveis, aqueles que o sistema já havia condenado previamente. Cada caso era pessoal.",
-        "timeline_5_year": "Atendimento à Terceira Idade",
-        "timeline_5_text": "Abri meu próprio escritório especializado em testamentos e direito do idoso nos fundos de um salão de unhas. Lutei pelos aposentados lesados por asilos e pela ganância corporativa. O caso Sandpiper Crossing provou que o homem comum pode derrubar gigantes.",
-        "timeline_6_year": "Conhecendo os Salamancas",
-        "timeline_6_text": "Defendi Tuco Salamanca e consegui uma redução drástica de pena. Isso me abriu as portas para um submundo que nunca imaginei. Aprendi que a lei criminal não é sobre culpa ou inocência; é sobre conhecer o jogo e jogá-lo melhor que qualquer um.",
+        "timeline_4_text": "Tornei-me defensor público em Albuquerque, pegando os casos que ninguém mais queria. Encontrei meu propósito defendendo os esquecidos, os invisíveis, aqueles que o sistema já havia condenado antes mesmo do julgamento. Cada processo era pessoal.",
+        "timeline_5_year": "Advocacia para Idosos",
+        "timeline_5_text": "Abri meu próprio escritório especializado em testamentos e direito dos idosos, trabalhando nos fundos de um salão de manicure. Briguei pelos velhinhos lesados por asilos e pela ganância corporativa. O caso Sandpiper Crossing provou que o homem comum pode derrubar gigantes.",
+        "timeline_6_year": "O Encontro com os Salamancas",
+        "timeline_6_text": "Defendi Tuco Salamanca e consegui uma redução de pena. Essa porta me jogou num submundo que eu jamais imaginara: o crime organizado. Aprendi que o direito penal não é sobre culpa ou inocência — é sobre dominar as regras do jogo e jogar melhor que qualquer um.",
         "timeline_7_year": "O Caso Kettleman",
-        "timeline_7_text": "Os Kettlemans me ensinaram uma lição valiosa: todo mundo tem culpa de algo. Eles escolheram a HHM em vez de mim, mas aquele caso me mostrou que havia um mercado gigantesco de pessoas precisando de um advogado capaz de pensar fora da caixa.",
+        "timeline_7_text": "Os Kettlemans me ensinaram uma lição preciosa: todo mundo tem culpa de alguma coisa. Eles escolheram a HHM em vez de mim, mas aquele caso me provou que existia um mercado enorme de clientes precisando de um advogado capaz de pensar fora da caixa.",
         "timeline_8_year": "Kim Wexler",
-        "timeline_8_text": "Minha parceria com Kim Wexler, a advogada mais genial que já conheci, me empurrou para frente. Éramos cúmplices no direito, nos esquemas e nos sonhos. Ela enxergava a virtude em Jimmy McGill mesmo quando eu mesmo já não via mais.",
+        "timeline_8_text": "Minha relação com a Kim Wexler, a advogada mais brilhante que já conheci, me transformou. Éramos parceiros em tudo: nas leis, nos planos, nos sonhos. Ela conseguia ver o melhor no Jimmy McGill, mesmo quando nem eu mesmo conseguia enxergar.",
         "timeline_9_year": "A Traição de Chuck",
-        "timeline_9_text": "Descobri que meu próprio irmão vinha sabotando minha carreira. Sua \"hipersensibilidade eletromagnética\" era real para ele, mas sua falta de fé em mim era ainda mais brutal. Na audiência da Ordem, ele me chamou de chimpanzé com metralhadora. Ele tinha razão, mas não do jeito que imaginava.",
+        "timeline_9_text": "Descobri que o Chuck vinha me sabotando o tempo todo. A \"hipersensibilidade eletromagnética\" dele era real na cabeça dele, mas o desdém por mim era ainda mais real. Na audiência disciplinar, ele soltou: \"Você é o Slippin' Jimmy com diploma, como um chimpanzé com uma metralhadora.\" Ele estava certo, mas não do jeito que pensava.",
         "timeline_10_year": "Suspensão da Licença",
-        "timeline_10_text": "Tive minha carteira de advogado suspensa por um ano após invadir a casa do Chuck. Trabalhei na CC Mobile vendendo celulares pré-pagos para criminosos, o que acabou virando minha melhor rede de contatos. Ser advogado vai além de uma carteira — trata-se de entender as reais dores das pessoas.",
+        "timeline_10_text": "Fiquei com a carteira suspensa por um ano após invadir a casa do Chuck. Fui trabalhar na CC Mobile vendendo celulares descartáveis para criminosos, o que acabou virando meu melhor networking. Descobri que ser advogado vai muito além da carteirinha — é sobre entender o que as pessoas realmente precisam.",
         "timeline_11_year": "O Nascimento de Saul Goodman",
-        "timeline_11_text": "Após a morte de Chuck e minha readmissão, percebi que James McGill me limitava. Mudei oficialmente meu nome para Saul Goodman — trocadilho com \"S'all good, man!\" (Tá tudo em paz, cara!). Ternos chamativos, comerciais espalhafatosos e o compromisso de defender quem precisar.",
+        "timeline_11_text": "Após a morte do Chuck e a recuperação da minha licença, entendi que James McGill só me prendia ao passado. Mudei legalmente meu nome para Saul Goodman — um trocadilho com \"S'all good, man!\" (Tá tudo em paz, cara!). Ternos berrantes, comerciais chamativos e a promessa de defender quem quer que precisasse.",
         "timeline_12_year": "Advogado Criminalista",
-        "timeline_12_text": "Virei O advogado criminalista de Albuquerque. Não apenas quem atua em causas penais, mas um advogado *criminoso*. De infrações de trânsito a barões de cartel, conhecia cada juiz, brecha e precedente. Meu escritório na Juan Tabo Boulevard virou sinônimo de vitória.",
+        "timeline_12_text": "Virei O advogado criminalista de Albuquerque. Não um advogado que pega casos penais — um advogado *criminoso*. De blitz de trânsito a chefões do tráfico, conhecia cada brecha, cada juiz, cada ponto fraco do tribunal. Meu escritório na Juan Tabo virou sinônimo de vitória.",
         "timeline_13_year": "Lalo Salamanca",
-        "timeline_13_text": "Defendi Lalo Salamanca em um processo de homicídio e garanti fiança no que parecia uma causa perdida. Aquela noite no deserto, quase morto de sede e emboscado, me ensinou sobre as consequências reais desse mundo. Mas também provou que posso negociar a saída de qualquer inferno.",
-        "timeline_14_year": "O Construtor de Impérios",
-        "timeline_14_text": "Estruturei uma operação robusta protegendo o submundo de Albuquerque. Conectei clientes ao meu associado Mike Ehrmantraut para \"consultoria de segurança\". O verdadeiro poder não mora nos fóruns — está em conhecer todo mundo e saber quais cordas puxar.",
-        "timeline_15_year": "Química do Ensino Médio",
-        "timeline_15_text": "Conheci um professor de química do ensino médio que havia entrado no tráfico de metanfetamina. Walter White era genial, desesperado e impulsivo. Virei seu advogado, conselheiro e passaporte para o submundo. \"Better Call Saul\" virou seu oxigênio e seu maior aviso.",
+        "timeline_13_text": "Representei Lalo Salamanca em sua acusação de homicídio. Consegui uma fiança que parecia impossível. Naquela noite no deserto, quase morto, descobri que essa vida cobra caro. Mas também comprovei que consigo sair conversando de qualquer enrascada. \"Diga que o Lalo te enviou.\"",
+        "timeline_14_year": "O Construtor do Império",
+        "timeline_14_text": "Ergui uma operação sólida defendendo a pesada cena criminal de Albuquerque. Conectei meus clientes ao Mike Ehrmantraut para \"consultorias de segurança\". Aprendi que o poder de verdade não está nos tribunais — está em conhecer todo mundo e saber exatamente quais cordinhas puxar.",
+        "timeline_15_year": "O Professor de Química",
+        "timeline_15_text": "Conheci um professor de química do ensino médio que havia entrado no ramo da metanfetamina. Walter White era inteligente, desesperado e impulsivo. Tornei-me seu advogado, conselheiro e sua ponte com o submundo. \"Better Call Saul\" virou o oxigênio dele e o seu maior alerta.",
         "timeline_16_year": "O Desaparecedor",
-        "timeline_16_text": "Quando o império do Walter ruiu, percebi que meu ciclo em Albuquerque havia terminado. Acionei Ed, o \"desaparecedor\", pelo cartão de conserto de aspirador. Um último olhar para o escritório e Saul Goodman evaporou na noite. Destino: Omaha, Nebraska. Nova identidade: Gene Takavic, gerente da Cinnabon.",
+        "timeline_16_text": "Quando o império do Walter desmoronou, percebi que meu tempo em Albuquerque havia acabado. Acionei o Ed \"desaparecedor\" pelo cartão de conserto de aspirador. Um último telefonema, um último olhar para o escritório, e Saul Goodman sumiu na noite. Destino: Omaha, Nebraska. Nova identidade: Gene Takavic, gerente da Cinnabon.",
         "timeline_17_year": "Hoje",
-        "timeline_17_text": "De volta à ativa. Saul Goodman & Associados — ainda brigando pelo pequeno empreendedor e pelo cidadão comum, achando as brechas que ninguém vê. Porque no final das contas, a lei não é sobre certo ou errado: é sobre dominar as regras para fazê-las trabalhar a seu favor. <strong>A justiça importa, mas vencer também.</strong>",
+        "timeline_17_text": "De volta a Albuquerque. Saul Goodman & Associados — ainda brigando pelo pequeno, ainda achando as brechas que os outros não enxergam, ainda defendendo quem ninguém quer defender. Porque no fim das contas, a lei não é sobre certo ou errado. É sobre dominar as regras para fazê-las jogarem ao seu favor. <strong>A justiça importa, mas ganhar também.</strong>",
 
-        // Contact
+        // Contact (Clássico jargão de Better Call Saul)
         "contact_badge": "DISPONÍVEL 24/7",
         "contact_title": "Contato",
-        "contact_hours": "Disponível 24 horas por dia, 7 dias por semana",
+        "contact_hours": "Atendimento 24 horas, 7 dias por semana",
         "contact_location": "Albuquerque, Novo México",
         "contact_quote": "\"Você não precisa de um advogado criminal. Você precisa de um advogado CRIMINOSO.\"",
         "contact_consultation": "Primeira consulta gratuita",
@@ -200,9 +202,9 @@ const translations = {
 
         // Footer
         "footer_rights": "© 2025 Saul Goodman & Associados",
-        "footer_license": "Autorizado para atuar no Estado do Novo México",
+        "footer_license": "Inscrito na Ordem dos Advogados do Estado do Novo México",
         "footer_motto": "A Justiça Importa Acima de Tudo",
-        "footer_disclaimer": "* Os resultados podem variar. Atuações passadas não garantem sucesso futuro. Não nos responsabilizamos por prisão preventiva. A banca Saul Goodman compromete-se com a defesa intransigente. Efeitos colaterais podem incluir liberdade, justiça e direitos constitucionais ocasionais. A consulta inicial não estabelece vínculo formal de patrocínio."
+        "footer_disclaimer": "* Os resultados podem variar. Atuações passadas não garantem sucesso futuro. Não nos responsabilizamos por prisão preventiva. A banca Saul Goodman compromete-se com uma representação jurídica implacável. Efeitos colaterais podem incluir liberdade, justiça e direitos constitucionais ocasionais. A consulta inicial não estabelece vínculo formal de patrocínio."
     }
 };
 
