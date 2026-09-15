@@ -1,33 +1,35 @@
 /**
  * SAUL GOODMAN - PARALLAX & ANIMATION ENGINE
- * Integrates Lenis Smooth Scroll, GSAP ScrollTrigger, Mouse Lerp Parallax & UI interactions
+ * Unified 60fps/120fps engine: Lenis Smooth Scroll, GSAP ScrollTrigger, GPU Ticker Parallax & UI
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    gsap.registerPlugin(ScrollTrigger);
 
     // ============================================
     // LENIS SMOOTH SCROLL
     // ============================================
     const lenis = new Lenis({
-        lerp: 0.07,
-        duration: 1.4,
+        lerp: 0.08,
+        duration: 1.2,
         smoothWheel: true,
-        wheelMultiplier: 0.7,
+        wheelMultiplier: 0.8,
     });
 
     // Connect Lenis to GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
-
-    gsap.registerPlugin(ScrollTrigger);
 
     // ============================================
     // MOUSE TRACKING WITH LERP
     // ============================================
     const mouse = { x: 0, y: 0 };
     const smoothMouse = { x: 0, y: 0 };
-    const MOUSE_LERP = 0.06;
+    const rawMouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const cursorPos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const MOUSE_LERP = 0.08;
+    const isMobile = window.innerWidth < 768;
 
     function lerp(start, end, factor) {
         return start + (end - start) * factor;
@@ -36,20 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', (e) => {
         mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        rawMouse.x = e.clientX;
+        rawMouse.y = e.clientY;
     }, { passive: true });
 
     // ============================================
     // CURSOR GLOW (desktop only)
     // ============================================
     const cursorGlow = document.getElementById('cursorGlow');
-    const isMobile = window.innerWidth < 768;
-
-    if (!isMobile && cursorGlow) {
-        document.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
-        }, { passive: true });
-    }
 
     // ============================================
     // FLOATING PARTICLES
@@ -155,54 +151,45 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: { trigger: '.hero', start: 'top top', end: '15% top', scrub: true }
     });
 
-    gsap.to('.vignette', {
-        boxShadow: 'inset 0 0 400px rgba(0,0,0,1)',
+    gsap.to('.vignette-heavy', {
+        opacity: 1,
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
 
     // ============================================
-    // MOUSE PARALLAX (RAF loop)
+    // SECTION VISIBILITY OBSERVERS FOR PERFORMANCE
     // ============================================
-    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let isHeroInView = true;
+    ScrollTrigger.create({
+        trigger: '#heroSection',
+        start: 'top bottom',
+        end: 'bottom top',
+        onEnter: () => { isHeroInView = true; },
+        onEnterBack: () => { isHeroInView = true; },
+        onLeave: () => { isHeroInView = false; },
+        onLeaveBack: () => { isHeroInView = false; },
+    });
 
-    function animateParallax() {
-        smoothMouse.x = lerp(smoothMouse.x, mouse.x, MOUSE_LERP);
-        smoothMouse.y = lerp(smoothMouse.y, mouse.y, MOUSE_LERP);
-
-        parallaxElements.forEach(el => {
-            const factor = parseFloat(el.getAttribute('data-parallax')) || 0;
-            const moveX = smoothMouse.x * factor * 40;
-            const moveY = smoothMouse.y * factor * 25;
-
-            el.style.transform = `translate(${moveX}px, ${moveY}px) ${el.style.transform.replace(/translate\([^)]+\)\s*/g, '')}`;
-        });
-
-        requestAnimationFrame(animateParallax);
-    }
-
-    if (!isMobile) {
-        requestAnimationFrame(animateParallax);
-    }
+    let isDualityInView = false;
+    ScrollTrigger.create({
+        trigger: '#dualitySection',
+        start: 'top bottom',
+        end: 'bottom top',
+        onEnter: () => { isDualityInView = true; },
+        onEnterBack: () => { isDualityInView = true; },
+        onLeave: () => { isDualityInView = false; },
+        onLeaveBack: () => { isDualityInView = false; },
+    });
 
     // ============================================
-    // HERO 3D TILT ON MOUSE (desktop only)
+    // HERO TITLE 3D ELEMENT
     // ============================================
-    if (!isMobile) {
-        const titleWrapper = document.querySelector('.title-wrapper');
-        function updateHeroTilt() {
-            if (titleWrapper) {
-                const rotateX = smoothMouse.y * 3;
-                const rotateY = smoothMouse.x * 5;
-                titleWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            }
-            requestAnimationFrame(updateHeroTilt);
-        }
-        requestAnimationFrame(updateHeroTilt);
-    }
+    const heroTitleImg = document.getElementById('heroTitleImg');
 
     // ============================================
     // DUALITY (SPLIT-SCREEN) 3D DEPTH & PARALLAX
     // ============================================
+    const dualityBgScroll = document.getElementById('dualityBgScroll');
     const dualityBgContainer = document.getElementById('dualityBgContainer');
     const dualityBgColor = document.getElementById('dualityBgColor');
     const dualityBgBw = document.getElementById('dualityBgBw');
@@ -210,9 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dualityGlow = document.getElementById('dualityGlow');
     const dualitySection = document.getElementById('dualitySection');
 
-    // 1. Scroll-driven 3D Zoom & Multi-plane Parallax
-    if (dualityBgContainer) {
-        gsap.fromTo(dualityBgContainer,
+    // 1. Scroll-driven 3D Zoom on outer scroll wrapper (zero conflict with mouse 3D tilt)
+    if (dualityBgScroll) {
+        gsap.fromTo(dualityBgScroll,
             { scale: 1.12, yPercent: -4 },
             {
                 scale: 1.03,
@@ -229,41 +216,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Interactive Duality: Color on James McGill (Left) & Black-and-White on Saul Goodman (Right)
-    // plus continuous 3D tilt & dynamic division line on hover/mouse move
-    if (!isMobile && dualityBgContainer && dualitySection) {
-        let currentSplitPercent = 50;
-        let targetSplitPercent = 50;
+    let currentSplitPercent = 50;
+    let targetSplitPercent = 50;
 
-        // Track cursor X across the full width (0% to 100%)
+    if (!isMobile && dualitySection) {
         dualitySection.addEventListener('mousemove', (e) => {
             const rect = dualitySection.getBoundingClientRect();
             const relativeX = (e.clientX - rect.left) / rect.width;
-            // Allow full horizontal sweep from 0% to 100%
             targetSplitPercent = Math.max(0, Math.min(100, relativeX * 100));
-        });
+        }, { passive: true });
 
         dualitySection.addEventListener('mouseleave', () => {
             targetSplitPercent = 50;
         });
+    }
 
-        function updateDuality3D() {
-            const rect = dualitySection.getBoundingClientRect();
-            if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
-                // 3D rotation & translation
-                const rotX = smoothMouse.y * -3.5;
-                const rotY = smoothMouse.x * 4.5;
-                const transX = smoothMouse.x * 20;
-                const transY = smoothMouse.y * 12;
-                const transZ = 15;
+    // ============================================
+    // UNIFIED 60FPS TICKER (Single RAF Render Loop)
+    // Synchronizes Lenis, mouse lerp, 3D tilt, and split rendering
+    // ============================================
+    gsap.ticker.add((time) => {
+        // 1. Lenis smooth scroll
+        lenis.raf(time * 1000);
 
-                dualityBgContainer.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
+        if (isMobile) return;
 
-                // Smoothly lerp the split line position across full 0-100%
-                currentSplitPercent = lerp(currentSplitPercent, targetSplitPercent, 0.08);
+        // 2. Smooth mouse interpolation
+        smoothMouse.x = lerp(smoothMouse.x, mouse.x, MOUSE_LERP);
+        smoothMouse.y = lerp(smoothMouse.y, mouse.y, MOUSE_LERP);
 
-                // Since dualityBgContainer is 112% wide (inset: -6%), we map the section's 0-100%
-                // to the container's internal coordinates so the split reaches exact physical edges
-                // Container offset = 6%, container total = 112%
+        // 3. Cursor glow (hardware accelerated via translate3d, 0 reflow)
+        if (cursorGlow) {
+            cursorPos.x = lerp(cursorPos.x, rawMouse.x, 0.18);
+            cursorPos.y = lerp(cursorPos.y, rawMouse.y, 0.18);
+            cursorGlow.style.transform = `translate3d(${cursorPos.x - 200}px, ${cursorPos.y - 200}px, 0)`;
+        }
+
+        // 4. Hero 3D tilt (only computed when hero section is in view)
+        if (isHeroInView && heroTitleImg) {
+            const rotX = smoothMouse.y * 3.5;
+            const rotY = smoothMouse.x * 5;
+            const transX = smoothMouse.x * 12;
+            const transY = -smoothMouse.y * 8;
+            heroTitleImg.style.transform = `perspective(1000px) translate3d(${transX}px, ${transY}px, 0) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        }
+
+        // 5. Duality 3D depth & interactive split (only computed when duality section is in view)
+        if (isDualityInView && dualityBgContainer) {
+            const rotX = smoothMouse.y * -3.5;
+            const rotY = smoothMouse.x * 4.5;
+            const transX = smoothMouse.x * 20;
+            const transY = smoothMouse.y * 12;
+            const transZ = 15;
+
+            dualityBgContainer.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
+
+            // Lerp split percent towards target
+            if (Math.abs(currentSplitPercent - targetSplitPercent) > 0.02) {
+                currentSplitPercent = lerp(currentSplitPercent, targetSplitPercent, 0.1);
+
+                // Map 0-100% to container coordinates
                 const containerSplitPercent = ((currentSplitPercent / 100) * 100 + 6) / 1.12;
 
                 if (dualityBgColor && dualityBgBw) {
@@ -281,10 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.22) 0%, rgba(10, 10, 10, 0.3) 45%, transparent 70%)`;
                 }
             }
-            requestAnimationFrame(updateDuality3D);
         }
-        requestAnimationFrame(updateDuality3D);
-    }
+    });
 
     // 3. Entrance & Differential Content Parallax
     gsap.fromTo('.split-left > div', 

@@ -69,11 +69,12 @@
     <!-- Hero Section -->
     <section class="hero" id="heroSection">
         <div class="vignette"></div>
+        <div class="vignette-heavy"></div>
         <div class="hero-content">
-            <div class="title-wrapper" data-parallax="0.3">
-                <img src="assets/better-call-saul-title.png" alt="Better Call Saul">
+            <div class="title-wrapper">
+                <img src="assets/better-call-saul-title.png" alt="Better Call Saul" id="heroTitleImg">
             </div>
-            <p class="subtitle" data-parallax="0.2" data-i18n="hero_subtitle">CRIMINAL DEFENSE ATTORNEY</p>
+            <p class="subtitle" data-i18n="hero_subtitle">CRIMINAL DEFENSE ATTORNEY</p>
         </div>
         
         <div class="hero-scroll-indicator" id="heroScrollIndicator">
@@ -84,16 +85,18 @@
 
     <!-- Transition (Duality Split-Screen) -->
     <section class="transition" id="dualitySection">
-        <div class="duality-bg-container" id="dualityBgContainer">
-            <div class="duality-bg-layer duality-bg-color" id="dualityBgColor"></div>
-            <div class="duality-bg-layer duality-bg-bw" id="dualityBgBw"></div>
+        <div class="duality-bg-scroll" id="dualityBgScroll">
+            <div class="duality-bg-container" id="dualityBgContainer">
+                <div class="duality-bg-layer duality-bg-color" id="dualityBgColor"></div>
+                <div class="duality-bg-layer duality-bg-bw" id="dualityBgBw"></div>
+            </div>
         </div>
         <div class="duality-divider-line" id="dualityDividerLine"></div>
         <div class="duality-light-glow" id="dualityGlow"></div>
         <div class="transition-fade-top"></div>
         <div class="split-screen">
             <div class="split-left">
-                <div data-parallax="0.2">
+                <div>
                     <h2 class="character-name" data-i18n="mcgill_title">JAMES McGILL</h2>
                     <p class="character-description" data-i18n="mcgill_desc">
                         The dedicated lawyer who started in Albuquerque courts, 
@@ -102,7 +105,7 @@
                 </div>
             </div>
             <div class="split-right">
-                <div data-parallax="-0.2">
+                <div>
                     <h2 class="character-name" data-i18n="saul_title">SAUL GOODMAN</h2>
                     <p class="character-description" data-i18n="saul_desc">
                         The criminal lawyer who knows every corner of the legal system, 
@@ -115,12 +118,12 @@
 
     <!-- Services Section -->
     <section class="services" id="services">
-        <div class="section-header" data-parallax="0.1">
+        <div class="section-header">
             <h2 class="section-title" data-i18n="services_title">Services</h2>
             <p class="section-subtitle" data-i18n="services_subtitle">Complete Legal Solutions</p>
         </div>
         <div class="services-list">
-            <div class="service-row" data-parallax="0.05">
+            <div class="service-row">
                 <div class="service-number">01</div>
                 <div class="service-content">
                     <h3 data-i18n="service_1_title">DUI Defense</h3>
@@ -132,7 +135,7 @@
                     </p>
                 </div>
             </div>
-            <div class="service-row" data-parallax="0.08">
+            <div class="service-row">
                 <div class="service-number">02</div>
                 <div class="service-content">
                     <h3 data-i18n="service_2_title">Criminal Defense</h3>
@@ -143,7 +146,7 @@
                     </p>
                 </div>
             </div>
-            <div class="service-row" data-parallax="0.1">
+            <div class="service-row">
                 <div class="service-number">03</div>
                 <div class="service-content">
                     <h3 data-i18n="service_3_title">Personal Injury</h3>
@@ -154,7 +157,7 @@
                     </p>
                 </div>
             </div>
-            <div class="service-row" data-parallax="0.12">
+            <div class="service-row">
                 <div class="service-number">04</div>
                 <div class="service-content">
                     <h3 data-i18n="service_4_title">Elder Law</h3>
@@ -267,13 +270,13 @@
     <section class="philosophy" id="about">
         <div class="philosophy-content">
             <h2 class="section-title" style="margin-bottom: 60px;" data-i18n="about_title">About Me</h2>
-            <p class="big-quote" data-parallax="0.08" data-i18n="about_quote">
+            <p class="big-quote" data-i18n="about_quote">
                 "Everyone deserves a defender. Everyone deserves someone who believes in them 
                 when no one else does. That's my job."
             </p>
             <p class="quote-author" data-i18n="about_quote_author">— Saul Goodman</p>
             
-            <div class="callout-box" data-parallax="0.05">
+            <div class="callout-box">
                 <p class="callout-title" data-i18n="about_callout_main">
                     "SLIPPIN' JIMMY<br>
                     WITH A LAW DEGREE<br>
@@ -499,12 +502,12 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-content">
-            <div class="hero-badge" data-parallax="0.1" data-i18n="contact_badge">AVAILABLE 24/7</div>
-            <h2 class="contact-title" data-parallax="0.1" data-i18n="contact_title">Contact</h2>
-            <p class="phone-large" data-parallax="0.05">(505) 503-4455</p>
+            <div class="hero-badge" data-i18n="contact_badge">AVAILABLE 24/7</div>
+            <h2 class="contact-title" data-i18n="contact_title">Contact</h2>
+            <p class="phone-large">(505) 503-4455</p>
             <p class="contact-info" data-i18n="contact_hours">Available 24 hours, 7 days a week</p>
             <p class="contact-info" data-i18n="contact_location">Albuquerque, New Mexico</p>
-            <div class="hero-quote" data-parallax="0.05" data-i18n="contact_quote">
+            <div class="hero-quote" data-i18n="contact_quote">
                 "You don't want a criminal lawyer. You want a \"CRIMINAL\" lawyer."
             </div>
             <p class="contact-info" style="margin-top: 30px;" data-i18n="contact_consultation">
