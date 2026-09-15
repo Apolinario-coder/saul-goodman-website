@@ -382,15 +382,16 @@ body {
 
 .duality-bg-layer {
     position: absolute;
-    inset: -12%;
-    width: 124%;
-    height: 124%;
+    inset: -6%;
+    width: 112%;
+    height: 112%;
     background-image: 
-        linear-gradient(to bottom, rgba(10, 10, 10, 0.4) 0%, rgba(26, 26, 26, 0.3) 50%, rgba(10, 10, 10, 0.5) 100%),
+        linear-gradient(to bottom, rgba(10, 10, 10, 0.35) 0%, rgba(26, 26, 26, 0.2) 40%, rgba(10, 10, 10, 0.5) 100%),
         url('../assets/duality-bg.jpeg');
     background-size: cover;
-    background-position: center;
-    filter: saturate(0.8) brightness(0.9) contrast(1.1);
+    background-position: center 28%; /* Keeps Saul and characters' faces in full view */
+    background-repeat: no-repeat;
+    filter: saturate(0.85) brightness(0.92) contrast(1.08);
     transform-style: preserve-3d;
     will-change: transform;
     pointer-events: none;
@@ -449,16 +450,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px;
+    padding: 60px 40px;
     position: relative;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     transition: background 0.4s ease;
 }
 
 .split-left:hover, .split-right:hover {
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.18);
 }
 
 .split-left > div,

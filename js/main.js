@@ -210,10 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Scroll-driven 3D Zoom & Multi-plane Parallax
     if (dualityBg) {
         gsap.fromTo(dualityBg,
-            { scale: 1.25, yPercent: -8 },
+            { scale: 1.12, yPercent: -4 },
             {
-                scale: 1.05,
-                yPercent: 8,
+                scale: 1.03,
+                yPercent: 4,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: '.transition',
@@ -231,19 +231,19 @@ document.addEventListener('DOMContentLoaded', () => {
             // Calculate if section is in or near viewport
             const rect = dualitySection.getBoundingClientRect();
             if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
-                // Invert slightly and apply 3D rotation + depth translation
-                const rotX = smoothMouse.y * -5;
-                const rotY = smoothMouse.x * 6;
-                const transX = smoothMouse.x * 35;
-                const transY = smoothMouse.y * 25;
-                const transZ = 20; // Pop out into 3D space
+                // Smooth subtle 3D rotation + depth translation that preserves face visibility
+                const rotX = smoothMouse.y * -3.5;
+                const rotY = smoothMouse.x * 4.5;
+                const transX = smoothMouse.x * 20;
+                const transY = smoothMouse.y * 12;
+                const transZ = 15; // Subtle 3D pop
 
-                dualityBg.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.12)`;
+                dualityBg.style.transform = `translate3d(${transX}px, ${transY}px, ${transZ}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.05)`;
 
                 if (dualityGlow) {
-                    const glowX = 50 + smoothMouse.x * 20;
-                    const glowY = 50 - smoothMouse.y * 20;
-                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.18) 0%, transparent 60%)`;
+                    const glowX = 50 + smoothMouse.x * 15;
+                    const glowY = 50 - smoothMouse.y * 15;
+                    dualityGlow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(201, 169, 97, 0.16) 0%, transparent 60%)`;
                 }
             }
             requestAnimationFrame(updateDuality3D);
