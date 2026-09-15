@@ -30,7 +30,3 @@ Uma experiência web imersiva e cinematográfica com efeitos avançados de paral
 │   └── main.js          # Motor de animações GSAP e Lenis
 └── assets/              # Imagens e mídias locais
 ```
-
-## 🚀 Como Executar
-
-Basta clonar o repositório e abrir o arquivo `index.html` em qualquer navegador moderno.
