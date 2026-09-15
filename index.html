@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James McGill / Saul Goodman - Criminal Defense Attorney</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Splitting.js CSS (CDN) -->
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Vendor Libraries (CDN) -->
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="Better Call Saul Logo">
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#journey" data-i18n="nav_journey">Journey</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                
+                <!-- Language Selector -->
+                <li class="lang-selector">
+                    <button class="lang-btn" data-lang="pt-BR" title="Português (Brasil)">PT</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en" title="English">EN</button>
+                </li>
+            </ul>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cinematic Intro -->
+    <div class="intro-overlay" id="introOverlay">
+        <img src="assets/logo.png" alt="Better Call Saul" class="intro-logo" id="introLogo">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="heroSection">
+        <div class="vignette"></div>
+        <div class="hero-content">
+            <div class="title-wrapper" data-parallax="0.3">
+                <img src="assets/better-call-saul-title.png" alt="Better Call Saul">
+            </div>
+            <p class="subtitle" data-parallax="0.2" data-i18n="hero_subtitle">CRIMINAL DEFENSE ATTORNEY</p>
+        </div>
+        
+        <div class="hero-scroll-indicator" id="heroScrollIndicator">
+            <span data-i18n="scroll_explore">Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Transition (Duality Split-Screen) -->
+    <section class="transition">
+        <div class="transition-fade-top"></div>
+        <div class="split-screen">
+            <div class="split-left">
+                <div data-parallax="0.2">
+                    <h2 class="character-name" data-i18n="mcgill_title">JAMES McGILL</h2>
+                    <p class="character-description" data-i18n="mcgill_desc">
+                        The dedicated lawyer who started in Albuquerque courts, 
+                        defending the forgotten and marginalized with passion and principles.
+                    </p>
+                </div>
+            </div>
+            <div class="split-right">
+                <div data-parallax="-0.2">
+                    <h2 class="character-name" data-i18n="saul_title">SAUL GOODMAN</h2>
+                    <p class="character-description" data-i18n="saul_desc">
+                        The criminal lawyer who knows every corner of the legal system, 
+                        fighting for his clients with strategy and determination.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header" data-parallax="0.1">
+            <h2 class="section-title" data-i18n="services_title">Services</h2>
+            <p class="section-subtitle" data-i18n="services_subtitle">Complete Legal Solutions</p>
+        </div>
+        <div class="services-list">
+            <div class="service-row" data-parallax="0.05">
+                <div class="service-number">01</div>
+                <div class="service-content">
+                    <h3 data-i18n="service_1_title">DUI Defense</h3>
+                    <p data-i18n="service_1_desc">
+                        Got caught? Don't get taught! Let Saul sort it out! 
+                        Aggressive representation in all levels of DUI cases. 
+                        From the initial stop to the courtroom, I know every move, 
+                        every precedent, every loophole in the system.
+                    </p>
+                </div>
+            </div>
+            <div class="service-row" data-parallax="0.08">
+                <div class="service-number">02</div>
+                <div class="service-content">
+                    <h3 data-i18n="service_2_title">Criminal Defense</h3>
+                    <p data-i18n="service_2_desc">
+                        From petty to pretty serious, I'm your legal genius! 
+                        Whether it's theft, assault, or more complex charges, 
+                        I've seen it all and won it all. Your freedom is my mission.
+                    </p>
+                </div>
+            </div>
+            <div class="service-row" data-parallax="0.1">
+                <div class="service-number">03</div>
+                <div class="service-content">
+                    <h3 data-i18n="service_3_title">Personal Injury</h3>
+                    <p data-i18n="service_3_desc">
+                        Hurt? Alert! Call the expert for what you deserve! 
+                        Slip and fall? Car accident? Workplace injury? 
+                        Don't let insurance companies push you around. I fight for maximum compensation.
+                    </p>
+                </div>
+            </div>
+            <div class="service-row" data-parallax="0.12">
+                <div class="service-number">04</div>
+                <div class="service-content">
+                    <h3 data-i18n="service_4_title">Elder Law</h3>
+                    <p data-i18n="service_4_desc">
+                        Protecting seniors from legal adventures! 
+                        Estate planning, nursing home abuse, Medicare issues. 
+                        Your loved ones deserve dignity and protection under the law.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="testimonials_title">Testimonials</h2>
+            <p class="section-subtitle" data-i18n="testimonials_subtitle">What Clients Say</p>
+        </div>
+        <div class="testimonials-wrapper">
+            <div class="testimonials-track">
+                <!-- First batch of cards -->
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Walter White</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_walter">"Saul didn't just handle my legal problems. He understood my business needs. When things got complicated, he always had a solution. He's the only lawyer I'd trust with my... chemistry."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Jesse Pinkman</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_jesse">"Yo, this dude Saul, he's like... legit. When I was in deep trouble, he got me out. He's not like those other lawyers, man. He actually cares. For real."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Nacho Varga</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_nacho">"In my line of work, discretion is everything. Saul understands that. He navigates the gray areas better than anyone. He's saved my skin more times than I can count."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Mike Ehrmantraut</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_mike">"I've worked with many lawyers. Saul gets results. He's unconventional, but effective. If you're in trouble, he's your best option. No half measures."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Kim Wexler</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_kim">"I've seen Saul work from the inside. His methods might be unconventional, but his dedication to his clients is absolute. He fights harder than anyone I know."</p>
+                    </div>
+                </div>
+
+                <!-- Cloned batch for seamless infinite loop -->
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Walter White</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_walter">"Saul didn't just handle my legal problems. He understood my business needs. When things got complicated, he always had a solution. He's the only lawyer I'd trust with my... chemistry."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Jesse Pinkman</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_jesse">"Yo, this dude Saul, he's like... legit. When I was in deep trouble, he got me out. He's not like those other lawyers, man. He actually cares. For real."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Nacho Varga</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_nacho">"In my line of work, discretion is everything. Saul understands that. He navigates the gray areas better than anyone. He's saved my skin more times than I can count."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Mike Ehrmantraut</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_mike">"I've worked with many lawyers. Saul gets results. He's unconventional, but effective. If you're in trouble, he's your best option. No half measures."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="client-info">
+                        <div class="client-name">Kim Wexler</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p data-i18n="test_kim">"I've seen Saul work from the inside. His methods might be unconventional, but his dedication to his clients is absolute. He fights harder than anyone I know."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="philosophy" id="about">
+        <div class="philosophy-content">
+            <h2 class="section-title" style="margin-bottom: 60px;" data-i18n="about_title">About Me</h2>
+            <p class="big-quote" data-parallax="0.08" data-i18n="about_quote">
+                "Everyone deserves a defender. Everyone deserves someone who believes in them 
+                when no one else does. That's my job."
+            </p>
+            <p class="quote-author" data-i18n="about_quote_author">— Saul Goodman</p>
+            
+            <div class="callout-box" data-parallax="0.05">
+                <p class="callout-title" data-i18n="about_callout_main">
+                    "SLIPPIN' JIMMY<br>
+                    WITH A LAW DEGREE<br>
+                    <span class="callout-accent">IS LIKE A CHIMP WITH A MACHINE GUN"</span>
+                </p>
+                <p class="callout-attribution" data-i18n="about_callout_attribution">
+                    — What they said about me
+                </p>
+                <p class="callout-reply" data-i18n="about_callout_reply">
+                    I proved them wrong.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="journey">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="timeline_title">Journey</h2>
+            <p class="section-subtitle" data-i18n="timeline_subtitle">From Slippin' Jimmy to Saul Goodman</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_1_year">Cicero, Illinois</div>
+                    <p class="timeline-text" data-i18n="timeline_1_text">
+                        Started as "Slippin' Jimmy" in Cicero, running small-time cons with my partner Marco. 
+                        The streets taught me more about human nature than any law book ever could. 
+                        Every scam, every hustle - they were survival lessons in a world that didn't care about people like us.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_2_year">The Mailroom</div>
+                    <p class="timeline-text" data-i18n="timeline_2_text">
+                        My brother Chuck gave me a chance at Hamlin, Hamlin & McGill - in the mailroom. 
+                        While delivering mail by day, I studied law at night at the University of American Samoa. 
+                        "Go Land Crabs!" It wasn't Harvard, but I earned every single credit through sheer determination.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_3_year">Passing the Bar</div>
+                    <p class="timeline-text" data-i18n="timeline_3_text">
+                        Passed the bar exam on my third try. My brother Chuck, a brilliant lawyer I admired, 
+                        secretly blocked my path at HHM at every turn. The person I respected most 
+                        never believed in me. That changed everything.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_4_year">Public Defender</div>
+                    <p class="timeline-text" data-i18n="timeline_4_text">
+                        Became a public defender in Albuquerque, representing clients no one else wanted. 
+                        Found purpose defending the forgotten, the overlooked, the ones the system had already written off. 
+                        Each case was personal - these were real people who deserved a fighting chance.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_5_year">Elder Law Practice</div>
+                    <p class="timeline-text" data-i18n="timeline_5_text">
+                        Opened my own practice focusing on elder law and wills. Operating out of the back 
+                        of a nail salon, I fought for seniors who'd been taken advantage of by nursing homes 
+                        and corporate greed. Sandpiper Crossing case proved the little guy could take on giants.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_6_year">Meeting the Salamancas</div>
+                    <p class="timeline-text" data-i18n="timeline_6_text">
+                        Represented Tuco Salamanca and got him a reduced sentence. That opened doors to a world 
+                        I never imagined - the criminal underworld. Learned that criminal law wasn't about 
+                        guilt or innocence, it was about knowing the game and playing it better than anyone else.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_7_year">The Kettleman Case</div>
+                    <p class="timeline-text" data-i18n="timeline_7_text">
+                        The Kettlemans taught me a valuable lesson: everyone's guilty of something. 
+                        They chose HHM over me, but that case showed me there was a whole market of 
+                        clients who needed a lawyer willing to think outside the box.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_8_year">Kim Wexler</div>
+                    <p class="timeline-text" data-i18n="timeline_8_text">
+                        My relationship with Kim Wexler, the most brilliant lawyer I've ever known, 
+                        pushed me to be better. We were partners in every sense - in law, in schemes, 
+                        in dreams. She saw the good in Jimmy McGill, even when I couldn't see it myself.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_9_year">Chuck's Betrayal</div>
+                    <p class="timeline-text" data-i18n="timeline_9_text">
+                        Discovered my brother Chuck had been sabotaging me all along. His "electromagnetic 
+                        hypersensitivity" was real to him, but his lack of faith in me was even more real. 
+                        At the Bar hearing, he said "You're Slippin' Jimmy with a law degree, like a chimp 
+                        with a machine gun." He was right, but not in the way he thought.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_10_year">License Suspension</div>
+                    <p class="timeline-text" data-i18n="timeline_10_text">
+                        Lost my law license for a year after breaking into Chuck's house. 
+                        Worked at CC Mobile selling phones to criminals, which ironically became 
+                        my best networking opportunity. Learned that being a lawyer wasn't just about 
+                        the license - it was about understanding what people really needed.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_11_year">Birth of Saul Goodman</div>
+                    <p class="timeline-text" data-i18n="timeline_11_text">
+                        After Chuck's death and my reinstatement, I realized James McGill was holding me back. 
+                        I legally changed my name to Saul Goodman - a play on "S'all good, man!" 
+                        It wasn't running away from Jimmy; it was becoming who I was always meant to be. 
+                        Bright suits, flashy commercials, and a commitment to defending anyone who needed it.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_12_year">Criminal Lawyer</div>
+                    <p class="timeline-text" data-i18n="timeline_12_text">
+                        Became THE criminal lawyer in Albuquerque. Not a lawyer who handles criminal cases - 
+                        a *criminal* lawyer. From DUIs to drug dealers, from money laundering to RICO cases, 
+                        I knew every loophole, every precedent, every judge's weak spot. My office on 
+                        Juan Tabo Boulevard became synonymous with getting results.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_13_year">Lalo Salamanca</div>
+                    <p class="timeline-text" data-i18n="timeline_13_text">
+                        Represented Lalo Salamanca in his murder case. Got him bail in what seemed impossible. 
+                        That night in the desert, when I thought I'd die, I learned that this life had real 
+                        consequences. But I also learned I could talk my way out of anything. 
+                        "Tell them Lalo sent you."
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_14_year">The Empire Builder</div>
+                    <p class="timeline-text" data-i18n="timeline_14_text">
+                        Built a thriving practice defending Albuquerque's criminal element. 
+                        Connected clients with my associate Mike Ehrmantraut for "security consultations." 
+                        Learned the real power wasn't in the courtroom - it was in knowing everyone, 
+                        everything, and exactly which strings to pull.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_15_year">High School Chemistry</div>
+                    <p class="timeline-text" data-i18n="timeline_15_text">
+                        Met a high school chemistry teacher who'd gotten into the meth business. 
+                        Walter White was smart, desperate, and in over his head. I became his lawyer, 
+                        his consigliere, his connection to the criminal world. 
+                        "Better Call Saul" became his lifeline and his warning.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_16_year">The Disappearer</div>
+                    <p class="timeline-text" data-i18n="timeline_16_text">
+                        When Walter's empire crumbled, I knew my time in Albuquerque was up. 
+                        Called Ed the "disappearer" with my vacuum card. One last phone call, 
+                        one last look at my office, and Saul Goodman vanished into the night. 
+                        Destination: Omaha, Nebraska. New identity: Gene Takavic, Cinnabon manager.
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year" data-i18n="timeline_17_year">Today</div>
+                    <p class="timeline-text" data-i18n="timeline_17_text">
+                        Back in Albuquerque. Saul Goodman & Associates - still fighting for the little guy, 
+                        still finding the angles others miss, still believing everyone deserves representation. 
+                        Because in the end, the law isn't about what's right or wrong. 
+                        It's about knowing the rules well enough to make them work for you. 
+                        <strong>Justice matters, but so does winning.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="hero-badge" data-parallax="0.1" data-i18n="contact_badge">AVAILABLE 24/7</div>
+            <h2 class="contact-title" data-parallax="0.1" data-i18n="contact_title">Contact</h2>
+            <p class="phone-large" data-parallax="0.05">(505) 503-4455</p>
+            <p class="contact-info" data-i18n="contact_hours">Available 24 hours, 7 days a week</p>
+            <p class="contact-info" data-i18n="contact_location">Albuquerque, New Mexico</p>
+            <div class="hero-quote" data-parallax="0.05" data-i18n="contact_quote">
+                "You don't want a criminal lawyer. You want a \"CRIMINAL\" lawyer."
+            </div>
+            <p class="contact-info" style="margin-top: 30px;" data-i18n="contact_consultation">
+                First consultation free
+            </p>
+            <p class="final-quote" data-i18n="contact_cta">Better Call Saul!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p data-i18n="footer_rights">&copy; 2025 Saul Goodman & Associates</p>
+        <p data-i18n="footer_license">Licensed to Practice in the State of New Mexico</p>
+        <p style="margin-top: 20px; color: #c9a961;" data-i18n="footer_motto">Justice Matters Most</p>
+        <p class="disclaimer" data-i18n="footer_disclaimer">
+            * Results may vary. Past performance does not guarantee future results. 
+            Not responsible for jail time. Better Call Saul is committed to providing 
+            aggressive legal representation. Side effects may include freedom, justice, 
+            and occasional constitutional rights. Consultation does not create attorney-client relationship.
+        </p>
+    </footer>
+
+    <!-- Translation Dictionary & i18n Core -->
+    <script src="js/translations.js"></script>
+    <script src="js/i18n.js"></script>
+
+    <!-- Animation & Parallax Engine -->
+    <script src="js/main.js"></script>
+</body>
+</html>
